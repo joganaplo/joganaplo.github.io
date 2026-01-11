@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jóganapló</title>
   <style>
+
+  :root {
+  --content-width: 42rem;
+  }
+
   body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont,
@@ -14,7 +19,7 @@
 
   .intro {
     padding: 1.25rem 1rem 2rem;
-    max-width: 42rem;
+    max-width: var(--content-width);
     margin: 0 auto;
     font-size: 1rem;
     line-height: 1.6;
@@ -28,8 +33,13 @@
   .intro a:hover {
     text-decoration: underline;
   }
-  
-  img { width: 100%; display: block; }
+
+  img {
+    width: 100%;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    display: block;
+  }
   </style>
 </head>
 <body>
@@ -60,7 +70,7 @@
   </p>
 </div>
 
-  
+
   <img src="1.jpg">
   <img src="2.jpg">
   <img src="3.jpg">
