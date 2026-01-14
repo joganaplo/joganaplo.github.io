@@ -1,78 +1,115 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jóganapló</title>
-  <style>
+    <head>
+        <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Jóganapló</title>
+                <style>
+                    
+                    :root {
+                        --content-width: 42rem;
+                    }
+                    
+                    body {
+                        margin: 0;
+                        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                        color: #111;
+                    }
+                    
+                    .intro {
+                        padding: 1.25rem 1rem 2rem;
+                        max-width: var(--content-width);
+                        margin: 0 auto;
+                        font-size: 1rem;
+                        line-height: 1.6;
+                    }
+                    
+                    .intro a {
+                        color: #0066cc;
+                        text-decoration: none;
+                    }
+                    
+                    .intro a:hover {
+                        text-decoration: underline;
+                    }
+                    
+                    img {
+                        width: 100%;
+                        max-width: var(--content-width);
+                        margin: 0 auto;
+                        display: block;
+                    }
+                </style>
+    </head>
+    <body>
+        
+        <div class="intro">
+            <p>
+            Ez a <strong>Jóganapló</strong>, ami a
+            <strong>Szárazföldi napló</strong> része, ami a
+            <strong>Tengeri napló</strong> folytatása.
+            </p>
+            
+            <p>
+            Utóbbi az Apple Books oldalán
+            <a href="https://books.apple.com/book/id6504611427" target="_blank" rel="noopener">
+                itt érhető el,
+            </a>
+            míg a Szárazföldi napló teljes terjedelmében csak a
+            <a href="https://apps.apple.com/hu/app/id6736395120" target="_blank" rel="noopener">
+                Folyó nevű iPhone-appban
+            </a>
+            olvasható. Ez mind kitalált történet, semmi köze nincs a valósághoz.
+            </p>
+            
+            <p>
+            Ha nincs iPhone-od, és mégis olvasnád, írj a
+            <a href="mailto:catanore@icloud.com?subject=Jóganapló">catanore@icloud.com</a>
+            címre, megoldjuk!
+            </p>
+        </div>
+        
+        
+        <div id="images"></div>
+        
+        <script>
+            const container = document.getElementById("images");
+            const firstIndex = 26;
+            const lastIndex = 91;
+            
+            for (let i = firstIndex; i <= lastIndex; i++) {
+                const img = document.createElement("img");
+                img.src = `${i}.jpeg`;
+                img.alt = `Jóganapló – ${i - firstIndex + 1}. oldal`;
+                
+                if (i > firstIndex) {
+                    img.loading = "lazy";
+                }
+                
+                if (i == 85) {
+                    const notice = document.createElement("div");
+                    notice.className = "intro";
+                    
+                    notice.innerHTML = `
+                      <p>
+                        Itt egy bajszos fotó következik, amely kizárólag a
+                        <strong>Folyó</strong> appban tekinthető meg.
+                        Már csak ezért is megéri
+                        <a href="https://apps.apple.com/hu/app/id6736395120" target="_blank" rel="noopener">
+                          letölteni!
+                        </a>
+                        Miután telepítetted az iPhone készülékedre, nyomj a <strong>Szárazföldi napló</strong> feliratra, majd ugorj a <strong>87.</strong> oldalra benne!
+                      </p>
+                    `;
 
-  :root {
-  --content-width: 42rem;
-  }
-
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: #111;
-  }
-
-  .intro {
-    padding: 1.25rem 1rem 2rem;
-    max-width: var(--content-width);
-    margin: 0 auto;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .intro a {
-    color: #0066cc;
-    text-decoration: none;
-  }
-
-  .intro a:hover {
-    text-decoration: underline;
-  }
-
-  img {
-    width: 100%;
-    max-width: var(--content-width);
-    margin: 0 auto;
-    display: block;
-  }
-  </style>
-</head>
-<body>
-
-<div class="intro">
-  <p>
-    Ez a <strong>Jóganapló</strong>, ami a
-    <strong>Szárazföldi napló</strong> része, ami a
-    <strong>Tengeri napló</strong> folytatása.
-  </p>
-
-  <p>
-    Utóbbi az Apple Books oldalán
-    <a href="https://books.apple.com/book/id6504611427" target="_blank" rel="noopener">
-      itt érhető el
-    </a>,
-    míg a Szárazföldi napló teljes terjedelmében sajnos csak a
-    <a href="https://apps.apple.com/hu/app/id6736395120" target="_blank" rel="noopener">
-      Folyó nevű iPhone-appban
-    </a>
-    olvasható. Ez mind kitalált történet, semmi köze nincs a valósághoz.
-  </p>
-
-  <p>
-    Ha nincs iPhone-od, és mégis olvasnád, írj a
-    <a href="mailto:catanore@icloud.com">catanore@icloud.com</a>
-    címre, megoldjuk!
-  </p>
-</div>
-
-
-  <img src="1.jpg">
-  <img src="2.jpg">
-  <img src="3.jpg">
-</body>
+                    container.appendChild(notice);
+                } else {
+                    container.appendChild(img);
+                }
+            }
+        </script>
+        
+        
+    </body>
 </html>
